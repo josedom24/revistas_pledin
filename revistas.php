@@ -1,11 +1,12 @@
 [insert_php]
-$base="https://s3-eu-west-1.amazonaws.com/revistas/";
-$num_rev=1;
+$base="https://dl.dropboxusercontent.com/u/50678558/Revistas/";
+$revistas = file($base."/lista.txt");
 echo'<table border="0">';
 echo'<tbody>';
-for($i=1;$i< $num_rev+1;$i++)
+foreach ($revistas as $i)
 {
-	$rev=(string)$i;	
+	$rev=$i;
+	$rev = substr($rev, 0, -1);
 	if(strlen($rev)==1) $rev="0".$rev;
 	$lines = file($base.$rev."/info.txt");
 	$nombre=$lines[0];
@@ -18,7 +19,7 @@ for($i=1;$i< $num_rev+1;$i++)
     echo'<tr>';
 	echo '<td width="20%"><img src="'.$base.$rev.'/'.$cant_rev.'.jpg" alt="0" width="100px" height="120px" border="0" hspace="0" vspace="0" /></td>';
 	echo'<td width="80%">';
-	echo'<h1><a href="http://www.josedomingo.org/pledin/unarevista/?id='.$i.'' ">'.$nombre.'</a></h1>';
+	echo'<h1><a href="http://www.josedomingo.org/pledin/unarevista/?id='.$i.' ">'.$nombre.'</a></h1>';
 	echo'<a href="'.$url.'">Página Web</a><br />';
 	echo $desc;
 	echo '<strong>Última publicación:'.$ult_publicacion.'</strong></td>';

@@ -1,5 +1,5 @@
 [insert_php]
-$base="https://s3-eu-west-1.amazonaws.com/revistas/";
+$base="https://dl.dropboxusercontent.com/u/50678558/Revistas/";
 $d=$_GET["id"];
 $rev=(string)$d;
 if(strlen($rev)==1) $rev="0".$rev;
